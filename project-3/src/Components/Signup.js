@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class SIgnup extends Component {
+class Signup extends Component {
     constructor(props){
         super(props)
 
@@ -21,7 +21,8 @@ class SIgnup extends Component {
         return (
             //(e) is a trick that holds javascript from running code until the button is clicked
             <form onSubmit={(e)=>this.props.handleSubmit(e, this.state)}>
-                <h2>Register Here</h2>
+                <h2>Signup now!
+                </h2>
                 <input
                     type="text"
                     name="username"
@@ -46,4 +47,4 @@ class SIgnup extends Component {
     }
 }
 
-export default RegisterForm;
+export default Signup;
