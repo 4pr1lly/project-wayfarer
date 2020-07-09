@@ -1,4 +1,4 @@
-import React, { Component} from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import Signup from './Components/Signup';
 import Login from './Components/Login';
@@ -17,13 +17,17 @@ class App extends Component {
     e.preventDefault();
     const loadedUser = await signupUser(user);
     this.setState({
+
       currentUser: loadedUser
     })
   }
   handleLogin = async (e, user) => {
+    console.log(user)
     e.preventDefault();
     const loadedUser = await loginUser(user);
+    console.log(loadedUser)
     this.setState({
+
       currentUser: loadedUser
     })
   }
@@ -41,7 +45,11 @@ class App extends Component {
       })
     }
   }
+
+  
+
   render() {
+    console.log(this.state.currentUser)
   return (
     <div className="App">
       <nav>
@@ -49,7 +57,7 @@ class App extends Component {
           <img src= "https://images.pexels.com/photos/2007401/pexels-photo-2007401.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"  alt= "travel"/>
           <h1>Wayfarer</h1>
           {this.state.currentUser && <h3>Welcome: {this.state.currentUser.username}</h3>}
-        {this.state.currentUser ? <button onClick={this.handleLogout}>Logout</button> : (
+          {this.state.currentUser ? <button onClick={this.handleLogout}>Logout</button> : (
           <div>
             <Signup handleSubmit={this.handleSignup}/>
             <Login handleSubmit={this.handleLogin}/>

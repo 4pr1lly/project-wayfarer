@@ -10,9 +10,9 @@ class Login extends Component {
             password:""
         }
     }
+
     handleChange=(e) => {
         this.setState({
-            //below is allowing user to enter in a string of information
             [e.target.name]: e.target.value
         })
     }
@@ -37,7 +37,7 @@ class Login extends Component {
                 />
                 <input
                  type="submit"
-                 value="Login "
+                 value="Login"
                  />
             </form>
 

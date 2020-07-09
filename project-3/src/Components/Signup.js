@@ -37,7 +37,7 @@ class Signup extends Component {
                 />
                 <input
                  type="submit"
-                 value="Signup"
+                 value="Sign Up"
                  />
             </form>
         </nav>
