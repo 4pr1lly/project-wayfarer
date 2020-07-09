@@ -46,4 +46,4 @@ class SIgnup extends Component {
     }
 }
 
-export default Singnup;
+export default RegisterForm;
