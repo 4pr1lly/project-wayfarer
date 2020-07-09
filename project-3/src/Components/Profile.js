@@ -1,13 +1,18 @@
-import React from 'react';
+// import React from 'react';
 
-function Profile(props){
-    return (
-        <div>
-            <profile></profile>
-            <p></p>
-            
-            
-        </div>
-    )
-}
-export default Profile;
+// function Profile(props){
+//     if(props.user){
+//         return (
+//             <div className='profile-container'>
+//                 <h2>Profile page</h2>
+                
+                
+                
+                
+                
+//             </div>
+//         )
+//     }
+   
+// }
+// export default Profile;
