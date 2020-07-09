@@ -20,9 +20,9 @@ class Signup extends Component {
     render() {
         return (
             //(e) is a trick that holds javascript from running code until the button is clicked
+            <nav>
             <form onSubmit={(e)=>this.props.handleSubmit(e, this.state)}>
-                <h2>Signup now!
-                </h2>
+                
                 <input
                     type="text"
                     name="username"
@@ -42,9 +42,13 @@ class Signup extends Component {
                  value="Register"
                  />
             </form>
+        </nav>
+            
 
         )
+        
     }
+    
 }
 
 export default Signup;
