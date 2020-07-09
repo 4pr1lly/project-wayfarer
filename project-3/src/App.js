@@ -1,7 +1,7 @@
 import React, { Component} from 'react';
 import './App.css';
-// import RegisterForm from './Components/RegisterForm';
-// import LoginForm from './Components/LoginForm';
+import Signup from './Components/Signup';
+import Login from './Components/Login';
 // import {registerUser, loginUser, verifyUser} from './services/api_helper';
 // import PostContainer from './Components/Posts/PostContainer';
 
@@ -20,6 +20,10 @@ class App extends Component {
   render() {
   return (
     <div className="App">
+      <div>
+      <Login/>
+      <Signup/>
+      </div>
       
     </div>
     );

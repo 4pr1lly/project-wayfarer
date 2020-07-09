@@ -21,7 +21,8 @@ class Signup extends Component {
         return (
             //(e) is a trick that holds javascript from running code until the button is clicked
             <form onSubmit={(e)=>this.props.handleSubmit(e, this.state)}>
-                <h2>Register Here</h2>
+                <h2>Signup now!
+                </h2>
                 <input
                     type="text"
                     name="username"

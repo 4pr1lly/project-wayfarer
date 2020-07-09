@@ -19,7 +19,7 @@ class Login extends Component {
     render() {
         return(
              <form onSubmit={(e)=>this.props.handleSubmit(e, this.state)}>
-                <h2>Login Here</h2>
+                <h2>Login </h2>
                  <input
                     type="text"
                     name="username"
