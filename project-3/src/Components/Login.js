@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 class Login extends Component {
     constructor(props){
@@ -10,12 +10,12 @@ class Login extends Component {
             password:""
         }
     }
-    // handleChange=(e) => {
-    //     this.setState({
-    //         //below is allowing user to enter in a string of information
-    //         [e.target.name]: e.target.value
-    //     })
-    // }
+
+    handleChange=(e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
 
     render() {
         return(
@@ -37,7 +37,7 @@ class Login extends Component {
                 />
                 <input
                  type="submit"
-                 value="Login "
+                 value="Login"
                  />
             </form>
 

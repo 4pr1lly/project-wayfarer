@@ -10,16 +10,14 @@ class Signup extends Component {
         }
     }
 
-    // handleChange=(e)=> {
-    //     this.setState({
-    //         //e target below allows user to enter in string info
-    //         [e.target.name]:e.target.value
-    //     })
-    // }
+    handleChange=(e)=> {
+        this.setState({
+            [e.target.name]:e.target.value
+        })
+    }
 
     render() {
         return (
-            //(e) is a trick that holds javascript from running code until the button is clicked
             <nav>
             <form onSubmit={(e)=>this.props.handleSubmit(e, this.state)}>
                 
@@ -39,7 +37,7 @@ class Signup extends Component {
                 />
                 <input
                  type="submit"
-                 value="Register"
+                 value="Sign Up"
                  />
             </form>
         </nav>
