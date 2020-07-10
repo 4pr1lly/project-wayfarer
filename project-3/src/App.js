@@ -17,7 +17,7 @@ class App extends Component {
     }
   }
   handleSignup = async (e, user) => {
-    e.preventDefault();
+     e.preventDefault();
     const loadedUser = await signupUser(user);
     this.setState({
       currentUser: loadedUser
