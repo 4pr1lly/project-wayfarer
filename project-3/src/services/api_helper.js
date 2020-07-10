@@ -23,7 +23,8 @@ export const verifyUser = async() => {
     if (token) {
         api.defaults.headers.common.authorization = `Bearer ${token}`;
         const userData = await api.get('/auth/verify');
-        return userData.data;    
+        const userObject=getUserProfile()
+        return userObject;  
     } else {
         return false;
     }
@@ -40,3 +41,25 @@ export const getUserProfile =async() => {
     }
 }
 
+//============POSTS============//
+//Create POST//
+//--> Route Post http://localhost:3001/post/
+
+export const postPost= async(postData, cityId) => {
+    const newPost = await api.post(`/post/${cityId}`, postData);
+    console.log(newPost);
+    return newPost;
+}
+
+
+
+
+
+//Get all POSTS
+//---> GET---> http:// localhost:3001/post/all
+
+export const indexPosts =async () => {
+    const allPosts=await api.get(`/post/all`);
+    console.log(allPosts);
+    return allPosts.data;
+}

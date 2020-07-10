@@ -3,13 +3,12 @@ import './App.css';
 import Signup from './Components/Signup';
 import Login from './Components/Login';
 import Profile from './Components/UserProfile/Profile'; 
+import City from './Components/Posts/City'; 
 
+import PostContainer from './Components/Posts/PostContainer';
 
-
-// import { Link } from 'react-router-dom';
-// import Profile from './Components/Profile';
 import {signupUser, loginUser, verifyUser} from './services/api_helper';
-// import PostContainer from './Components/Posts/PostContainer';
+
 class App extends Component {
   constructor(props){
     super(props);
@@ -24,6 +23,7 @@ class App extends Component {
   handleSignup = async (e, user) => {
      e.preventDefault();
     const loadedUser = await signupUser(user);
+    console.log(loadedUser)
     this.setState({
       currentUser: loadedUser
     })
@@ -86,9 +86,14 @@ class App extends Component {
       <div>
         <Profile currentUser={this.state.currentUser}
             // handleChange={this.handleChange}
+        
           />
+        
       </div>
-    </div>
+      <City/>
+      <PostContainer/>
+      
+    </div> 
     );
   }
 }
