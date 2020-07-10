@@ -2,20 +2,20 @@ import axios from 'axios';
 
 const api = axios.create({ baseURL: "http://localhost:3001" })
 
-// ==================Auths===================//
+//==================Auths===================//
 
 export const signupUser = async (signupData) => {
     const userData = await api.post('/auth/signup', signupData);
     localStorage.setItem('authToken', userData.data.token);
-    api.defaults.headers.common.authorization = `Bearer ${userData.data.token}`;
-    return userData.data.user;
+    const userObject = getUserProfile()
+    return userObject;
 }
 
 export const loginUser = async (loginData) => {
     const userData = await api.post('/auth/login', loginData);
-    localStorage.setItem('authToken', userData.data.token);
-    api.defaults.headers.common.authorization = `Bearer ${userData.data.token}`;
-    return userData.data.user;
+    localStorage.setItem('authToken', userData.data.token)
+    const userObject = getUserProfile()
+    return userObject;
 }
 
 export const verifyUser = async() => {
@@ -23,8 +23,24 @@ export const verifyUser = async() => {
     if (token) {
         api.defaults.headers.common.authorization = `Bearer ${token}`;
         const userData = await api.get('/auth/verify');
-        return userData.data;    
+        const userObject = getUserProfile()
+        return userObject
     } else {
         return false;
     }
 }
+
+export const getUserProfile =async() => {
+    const token =localStorage.getItem('authToken');
+    if (token){
+        api.defaults.headers.common.authorization = `Bearer ${token}`;
+        const userData = await api.get('/user/profile');
+        console.log(userData)
+        return userData.data;  
+    } else {
+        return false;
+    }
+}
+
+//==================Cities===================//
+

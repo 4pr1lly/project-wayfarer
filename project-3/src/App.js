@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import './App.css';
 import Signup from './Components/Signup';
 import Login from './Components/Login';
-// import { Link } from 'react-router-dom';
-// import Profile from './Components/Profile';
+import City from './Components/City';
+import { Router, Link } from 'react-router-dom';
+import Profile from './Components/Profile';
 
-import {signupUser, loginUser, verifyUser} from './services/api_helper';
+import {signupUser, loginUser, verifyUser, getUserProfile} from './services/api_helper';
 // import PostContainer from './Components/Posts/PostContainer';
 
 class App extends Component {
@@ -60,7 +61,7 @@ class App extends Component {
           <img src= "https://images.pexels.com/photos/2007401/pexels-photo-2007401.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"  alt= "travel"/>
           <h1>Wayfarer</h1>
           {this.state.currentUser && <h3>Welcome: {this.state.currentUser.username}</h3>}
-        {this.state.currentUser ? <button onClick={this.handleLogout}>Logout</button> : (
+          {this.state.currentUser ? <button onClick={this.handleLogout}>Logout</button> : (
           <div>
             <Signup handleSubmit={this.handleSignup}/>
             <Login handleSubmit={this.handleLogin}/>
@@ -68,10 +69,13 @@ class App extends Component {
         )}
         </div>
       </nav>
+
       <div>
-        {/* <Profile/> */}
+        <Profile currentUser={this.state.currentUser} />
       </div>
-      
+      <div>
+        <City />
+      </div>
     </div>
     );
   }
