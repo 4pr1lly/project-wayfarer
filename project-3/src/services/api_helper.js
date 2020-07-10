@@ -34,7 +34,6 @@ export const getUserProfile =async() => {
     if (token){
         api.defaults.headers.common.authorization = `Bearer ${token}`;
         const userData = await api.get('/user/profile');
-        console.log(userData)
         return userData.data;    
     } else {
         return false;

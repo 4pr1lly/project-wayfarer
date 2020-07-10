@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import Signup from './Components/Signup';
 import Login from './Components/Login';
+import Profile from './Components/UserProfile/Profile'; 
+
 
 
 // import { Link } from 'react-router-dom';
@@ -13,6 +15,9 @@ class App extends Component {
     super(props);
     this.state={
       currentUser: null,
+      // name:'',
+      // username:'',
+      loggedIn: false
       
     }
   }
@@ -50,10 +55,16 @@ class App extends Component {
     }
   }
 
+  handleChange=(e)=> {
+    this.setState({
+        //e target below allows user to enter in string info
+        [e.target.name]:e.target.value
+    })
+}
+
   
 
   render() {
-    console.log(this.state.currentUser)
   return (
     <div className="App">
       <nav>
@@ -61,10 +72,7 @@ class App extends Component {
           <img src= "https://images.pexels.com/photos/2007401/pexels-photo-2007401.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"  alt= "travel"/>
           <h1>Wayfarer</h1>
           {this.state.currentUser && <h3>Welcome: {this.state.currentUser.username}</h3>}
-          
           {this.state.currentUser ? <button onClick={this.handleLogout}>Logout</button> : 
-
-         
           
            (
              
@@ -73,11 +81,12 @@ class App extends Component {
             <Login handleSubmit={this.handleLogin}/>
           </div>
         )}
-
         </div>
       </nav>
       <div>
-        {/* <Profile/> */}
+        <Profile currentUser={this.state.currentUser}
+            // handleChange={this.handleChange}
+          />
       </div>
     </div>
     );
