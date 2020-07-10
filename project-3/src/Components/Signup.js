@@ -38,6 +38,9 @@ class Signup extends Component {
                 <input
                  type="submit"
                  value="Sign Up"
+                //  onClick={this.handleSubmit}
+                onClick={this.handleSignup}
+                 
                  />
             </form>
         </nav>

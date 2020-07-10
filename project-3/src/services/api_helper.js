@@ -6,6 +6,7 @@ const api = axios.create({ baseURL: "http://localhost:3001" })
 
 export const signupUser = async (signupData) => {
     const userData = await api.post('/auth/signup', signupData);
+    console.log(userData)
     localStorage.setItem('authToken', userData.data.token);
     const userObject=getUserProfile() 
     return userObject;

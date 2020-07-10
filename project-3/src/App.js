@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import Signup from './Components/Signup';
 import Login from './Components/Login';
+
+
 // import { Link } from 'react-router-dom';
 // import Profile from './Components/Profile';
 import {signupUser, loginUser, verifyUser} from './services/api_helper';
@@ -10,17 +12,18 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state={
-      currentUser: null
+      currentUser: null,
+      
     }
   }
   handleSignup = async (e, user) => {
     e.preventDefault();
     const loadedUser = await signupUser(user);
     this.setState({
-
       currentUser: loadedUser
     })
   }
+
   handleLogin = async (e, user) => {
     console.log(user)
     e.preventDefault();
@@ -31,6 +34,7 @@ class App extends Component {
       currentUser: loadedUser
     })
   }
+
   handleLogout = () => {
     this.setState({
       currentUser: null
@@ -57,12 +61,19 @@ class App extends Component {
           <img src= "https://images.pexels.com/photos/2007401/pexels-photo-2007401.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"  alt= "travel"/>
           <h1>Wayfarer</h1>
           {this.state.currentUser && <h3>Welcome: {this.state.currentUser.username}</h3>}
-          {this.state.currentUser ? <button onClick={this.handleLogout}>Logout</button> : (
+          
+          {this.state.currentUser ? <button onClick={this.handleLogout}>Logout</button> : 
+
+         
+          
+           (
+             
           <div>
             <Signup handleSubmit={this.handleSignup}/>
             <Login handleSubmit={this.handleLogin}/>
           </div>
         )}
+
         </div>
       </nav>
       <div>

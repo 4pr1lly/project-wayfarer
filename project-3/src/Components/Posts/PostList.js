@@ -1,0 +1,1 @@
+//grabbing all posts by user and single post will need authorization
