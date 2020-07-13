@@ -3,7 +3,7 @@ import { Link, Route, withRouter } from 'react-router-dom';
 import './App.css';
 import Signup from './Components/Signup';
 import Login from './Components/Login';
-import LoginModal from './Modal/LoginModal';
+// import LoginModal from './Modal/LoginModal';
 import Profile from './Components/Profile'; 
 import City from './Components/Posts/City'; 
 import PostContainer from './Components/Posts/PostContainer';
@@ -108,11 +108,9 @@ class App extends Component {
       <Route path="/profile" render={() => {
         return <Profile currentUser={this.state.currentUser}/>
       }} />
-     
       <Route path="/city" render={() => {
         return <City />
       }}/>
-      
       <Route path="/signup" render={() => {
         return <Signup handleSubmit={this.handleSignup}/>
       }} />

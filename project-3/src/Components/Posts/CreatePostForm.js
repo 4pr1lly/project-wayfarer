@@ -9,7 +9,6 @@ class CreatePostForm extends Component {
             title: '',
             image_url: '',
             description: '',
-            fun_fact: ''
         }
     }
 
@@ -21,7 +20,7 @@ class CreatePostForm extends Component {
  
     render() {
         return (
-            <form onSubmit={(e) => this.props.handleSubmit(e, this.state)}>
+            <form onSubmit={(e) => this.props.handleSubmit(e, this.state, this.props.cityId)}>
                 <input 
                     type="text" 
                     name="title" 
@@ -38,12 +37,6 @@ class CreatePostForm extends Component {
                     type="text"
                     name="description"
                     placeholder="Description"
-                    onChange={this.handleChange}
-                />
-                <input
-                    type="text"
-                    name="fun_fact"
-                    placeholder="Fun Fact"
                     onChange={this.handleChange}
                 />
                 <input

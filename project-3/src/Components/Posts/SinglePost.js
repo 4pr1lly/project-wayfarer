@@ -13,7 +13,6 @@ function SinglePost(props) {
             <div>
                 <h2>{currentPost[0].title}</h2>
                 <h4>{currentPost[0].description}</h4>
-                <p>Fun Fact: {currentPost[0].fun_fact}</p>
                 <button onClick={() => props.destroyPost(currentPost[0].id)}>Delete</button>
             </div>
         )}

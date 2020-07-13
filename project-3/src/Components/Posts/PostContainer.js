@@ -18,17 +18,6 @@ class PostContainer extends Component {
     componentDidMount() {
         this.readAllPosts();
     }
-
-
-    createPost = async (e, postData) => {
-        e.preventDefault();
-        const newPost = await postPost(postData);
-        const posts = this.state.posts;
-        posts.push(newPost.data);
-        this.setState({
-            posts: posts
-        })
-    }
     
     readAllPosts = async () => {
         const allPosts = await indexPosts();
@@ -68,7 +57,7 @@ class PostContainer extends Component {
                 <Route path="/posts/new" render={() => {
                     return <CreatePostForm handleSubmit={this.createPost} />
                 }} />                
-                <Route exact path="/posts" render={() => {
+                <Route exact path="/posts/:id" render={() => {
                     return <PostList posts={this.state.posts} />
                 }} />
                 <Route path="/posts/:id/edit" render={(props) => {

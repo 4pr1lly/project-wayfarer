@@ -41,25 +41,37 @@ export const getUserProfile =async() => {
 
 //============POSTS============//
 
-export const postPost = async (postData) => {
-    const newPost = await api.post('/posts', postData);
+export const postPost= async(postData, cityId) => {
+    const newPost = await api.post(`/post/${cityId}`, postData);
+    console.log(newPost);
     return newPost;
 }
 
+// export const postPost = async (postData) => {
+//     const newPost = await api.post('/posts', postData);
+//     return newPost;
+// }
+
 export const indexPosts = async () => {
-    const allPosts = await api.get('/posts');
+    const allPosts = await api.get('/post');
     console.log(allPosts)
     return allPosts.data;
 }
 
 export const destroyPost = async (id) => {
-    const deleteUser = await api.delete(`/posts/${id}`);
+    const deleteUser = await api.delete(`/post/${id}`);
     return deleteUser.data;
 }
 
 export const putPost = async (id, postData) => {
-    const updatePost = await api.put(`/posts/${id}`, postData);
+    const updatePost = await api.put(`/post/${id}`, postData);
     return updatePost.data;
+}
+
+export const getCityPost = async (cityId) => {
+    const cityPosts = await api.get(`/post/city/${cityId}/all`)
+    console.log(cityPosts)
+    return cityPosts.data
 }
 
 

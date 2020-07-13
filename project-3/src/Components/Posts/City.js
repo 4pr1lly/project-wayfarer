@@ -3,6 +3,8 @@ import axios from 'axios'
 import './city.css';
 import SingleCity from './SingleCity';
 import { Link, Route } from 'react-router-dom';
+import { postPost } from '../../services/api_helper';
+
 
 
 
@@ -13,6 +15,11 @@ class City extends Component {
         this.state = {
             cities: []
         }
+    }
+
+    createPost = async (e, postData, cityId) => {
+        e.preventDefault();
+        await postPost(postData, cityId);
     }
 
     async componentDidMount() {
@@ -30,17 +37,19 @@ class City extends Component {
             {this.state.cities.map(city => {
                 return (
                     <div>
-                        <img src={city.img} alt="city" />
                         <Link to={`/city/${city.id}`}>
                             <h2>{city.name}</h2>
+                            <img src={city.img} alt="city"/>
                         </Link>
                     </div>
                 )
             })}
-        <Route path="/city/:id" render={(props) => {
-          return <SingleCity 
+            <Route path="/city/:id" render={(props) => {
+                return <SingleCity 
                   cities={this.state.cities}
-                  cityId={props.match.params.id} />
+                  cityId={props.match.params.id}
+                  handleSubmit={this.createPost}
+                  />
         }} />
         </div>
         )
