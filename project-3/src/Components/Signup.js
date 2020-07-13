@@ -42,12 +42,8 @@ class Signup extends Component {
                  />
             </form>
         </nav>
-            
-
         )
-        
     }
-    
 }
 
 export default Signup;

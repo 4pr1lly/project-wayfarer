@@ -1,38 +1,57 @@
 import React, { Component } from 'react';
+import { Link, Route, withRouter } from 'react-router-dom';
 import './App.css';
 import Signup from './Components/Signup';
 import Login from './Components/Login';
-import City from './Components/City';
-import { Router, Link } from 'react-router-dom';
-import Profile from './Components/Profile';
-
-import {signupUser, loginUser, verifyUser, getUserProfile} from './services/api_helper';
-// import PostContainer from './Components/Posts/PostContainer';
+import LoginModal from './Modal/LoginModal';
+import Profile from './Components/Profile'; 
+import City from './Components/Posts/City'; 
+import PostContainer from './Components/Posts/PostContainer';
+import {signupUser, loginUser, verifyUser} from './services/api_helper';
 
 class App extends Component {
   constructor(props){
     super(props);
-
     this.state={
-      currentUser: null
-
+      currentUser: null,
+      loggedIn: false,
+      isShowing: false
     }
   }
 
+// openModalHandler = () => {
+//     this.setState({
+//         isShowing: true
+//     });
+// }
+
+// closeModalHandler = () => {
+//     this.setState({
+//         isShowing: false
+//     });
+// }
+
+
+
   handleSignup = async (e, user) => {
-    e.preventDefault();
+     e.preventDefault();
     const loadedUser = await signupUser(user);
+    console.log(loadedUser)
     this.setState({
       currentUser: loadedUser
     })
+    this.props.history.push("/city")
   }
 
   handleLogin = async (e, user) => {
+    console.log(user)
     e.preventDefault();
     const loadedUser = await loginUser(user);
+    console.log(loadedUser)
     this.setState({
       currentUser: loadedUser
     })
+    this.props.history.push("/city")
   }
 
   handleLogout = () => {
@@ -41,7 +60,7 @@ class App extends Component {
     })
     localStorage.removeItem('authToken');
   }
-
+  
   async componentDidMount() {
     const currentUser = await verifyUser();
     if (currentUser) {
@@ -51,34 +70,61 @@ class App extends Component {
     }
   }
 
-  
+  handleChange=(e)=> {
+    this.setState({
+        [e.target.name]:e.target.value
+    })
+}
 
   render() {
   return (
     <div className="App">
-      <nav>
+      <nav id="nav">
         <div>
-          <img src= "https://images.pexels.com/photos/2007401/pexels-photo-2007401.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"  alt= "travel"/>
-          <h1>Wayfarer</h1>
+          <Link to="/"><img src= "https://images.pexels.com/photos/2007401/pexels-photo-2007401.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"  alt= "travel"/> </Link>
+          <Link to="/"><h1>Wayfarer</h1></Link>
           {this.state.currentUser && <h3>Welcome: {this.state.currentUser.username}</h3>}
           {this.state.currentUser ? <button onClick={this.handleLogout}>Logout</button> : (
           <div>
-            <Signup handleSubmit={this.handleSignup}/>
-            <Login handleSubmit={this.handleLogin}/>
+            <Link to="/signup">Signup</Link>
+            <Link to="/login">Login</Link>
           </div>
         )}
         </div>
       </nav>
+      {/* <div>
+                { this.state.isShowing ? <div onClick={this.closeModalHandler} className="back-drop"></div> : null }
 
-      <div>
-        <Profile currentUser={this.state.currentUser} />
-      </div>
-      <div>
-        <City />
-      </div>
+                <button className="open-modal-btn" onClick={this.openModalHandler}>Open Modal</button>
+
+                <LoginModal
+                    className="modal"
+                    show={this.state.isShowing}
+                    close={this.closeModalHandler}>
+                        Maybe aircrafts fly very high because they don't want to be seen in plane sight?
+                </LoginModal>
+      </div> */}
+      
+      <Route path="/profile" render={() => {
+        return <Profile currentUser={this.state.currentUser}/>
+      }} />
+     
+      <Route path="/city" render={() => {
+        return <City />
+      }}/>
+      
+      <Route path="/signup" render={() => {
+        return <Signup handleSubmit={this.handleSignup}/>
+      }} />
+      <Route path="/login" render={() => {
+        return <Login handleSubmit={this.handleLogin}/>
+      }} />
+      <Route path='/posts' render={() => {
+        return this.state.currentUser &&
+      <PostContainer />
+        }} />
     </div>
     );
   }
 }
-
-export default App;
+export default withRouter (App);

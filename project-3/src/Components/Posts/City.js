@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import './city.css';
+import SingleCity from './SingleCity';
+import { Link, Route } from 'react-router-dom';
+
+
 
 class City extends Component {
     constructor(props) {
@@ -26,10 +31,17 @@ class City extends Component {
                 return (
                     <div>
                         <img src={city.img} alt="city" />
-                        <h2>{city.name}</h2>
+                        <Link to={`/city/${city.id}`}>
+                            <h2>{city.name}</h2>
+                        </Link>
                     </div>
                 )
             })}
+        <Route path="/city/:id" render={(props) => {
+          return <SingleCity 
+                  cities={this.state.cities}
+                  cityId={props.match.params.id} />
+        }} />
         </div>
         )
     }
