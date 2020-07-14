@@ -35,7 +35,7 @@ class PostContainer extends Component {
         this.setState({
             posts: remainingPosts
         })
-        this.props.history.push('/posts');
+        this.props.history.push('/post');
     }
 
     updatePost = async (e, id, values) => {

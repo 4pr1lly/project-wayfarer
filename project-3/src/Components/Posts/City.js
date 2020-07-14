@@ -44,12 +44,15 @@ class City extends Component {
                     </div>
                 )
             })}
+             <Link to="/posts/new">see all posts</Link>
             <Route path="/city/:id" render={(props) => {
                 return <SingleCity 
                   cities={this.state.cities}
                   cityId={props.match.params.id}
                   handleSubmit={this.createPost}
                   />
+               
+
         }} />
         </div>
         )

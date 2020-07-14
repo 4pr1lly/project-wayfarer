@@ -33,7 +33,9 @@ class SingleCity extends Component {
             <img src={foundCity[0].img} alt="place"/>
             </div>
             }
-            <Link to="/posts/new">New Post</Link>
+            {this.state.posts && <Link to="posts/new">Create new post></Link>}
+            
+            <Link to="/posts/new">see all posts</Link>
             <CreatePostForm 
                 handleSubmit={this.props.handleSubmit}
                 cityId={this.props.cityId}

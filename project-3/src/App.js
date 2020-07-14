@@ -60,6 +60,13 @@ class App extends Component {
     })
     localStorage.removeItem('authToken');
   }
+
+  handleProfile = () => {
+    this.setState({
+      currentUser: null
+    })
+    localStorage.removeItem('authToken');
+  }
   
   async componentDidMount() {
     const currentUser = await verifyUser();
@@ -86,8 +93,18 @@ class App extends Component {
           {this.state.currentUser && <h3>Welcome: {this.state.currentUser.username}</h3>}
           {this.state.currentUser ? <button onClick={this.handleLogout}>Logout</button> : (
           <div>
-            <Link to="/signup">Signup</Link>
-            <Link to="/login">Login</Link>
+            <header>
+              <nav>
+                <Link to="/signup">Signup</Link> <br></br>
+               
+                <Link to="/login">Login</Link><br></br>
+                  {this.state.loggedIn &&
+                  <Link to ="/user/profile">Profile Page</Link>
+                }
+                  <Link to="/profile">Profile</Link><br></br>
+              </nav>
+            </header>
+            
           </div>
         )}
         </div>

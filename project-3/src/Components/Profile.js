@@ -17,6 +17,7 @@ function Profile (props){
             <div className="flex-container">
                 <p> You must be logged in</p>
             </div>
+            
         )
     }
 }
