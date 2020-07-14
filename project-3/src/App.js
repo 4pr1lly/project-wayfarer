@@ -79,19 +79,57 @@ class App extends Component {
   render() {
   return (
     <div className="App">
-      <nav id="nav">
-        <div>
-          <Link to="/"><img src= "https://images.pexels.com/photos/2007401/pexels-photo-2007401.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"  alt= "travel"/> </Link>
-          <Link to="/"><h1>Wayfarer</h1></Link>
+      <header>
+      <nav className="navbar">
+        <div className="container">
+          <div className="navbar-header">
+          {/* <Link to="/"><img src= "https://images.pexels.com/photos/2007401/pexels-photo-2007401.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"  alt= "travel"/> </Link> */}
+          <Link to="/"><h1 className="wayfarer-heading">Wayfarer</h1></Link>
           {this.state.currentUser && <h3>Welcome: {this.state.currentUser.username}</h3>}
           {this.state.currentUser ? <button onClick={this.handleLogout}>Logout</button> : (
           <div>
-            <Link to="/signup">Signup</Link>
-            <Link to="/login">Login</Link>
+            <ul className="navbar-right">
+              <li className="nav-item1">
+                <Link to="/signup">Signup</Link>
+              </li>
+              <li className="nav-item2">
+                <Link to="/login">Login</Link>
+              </li>
+            </ul>
           </div>
         )}
         </div>
+        </div>
       </nav>
+      </header>
+      <div className="img-home">
+        <img src="https://www.pxwall.com/wp-content/uploads/2018/08/Wallpaper%20Niagara%20Falls,%20Waterfall,%207K,%20Travel%207369715415.jpg"/>
+      </div>
+      <div className="topic-container">
+            <div className="jumbotron">
+                <h2 className="header">Wayfarer</h2>
+                <main className="topics">
+                  <div>
+                    <h3 className="topic">San Francisco</h3>
+                    <p className="topic-col">
+                      "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages."
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="topic">New York</h3>
+                    <p className="topic-col">
+                      "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages."
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="topic">Sydney</h3>
+                    <p className="topic-col">
+                      "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages."
+                    </p>
+                  </div>
+                </main>
+            </div>
+      </div>
       {/* <div>
                 { this.state.isShowing ? <div onClick={this.closeModalHandler} className="back-drop"></div> : null }
 
