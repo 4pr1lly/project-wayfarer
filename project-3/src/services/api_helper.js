@@ -13,6 +13,7 @@ export const signupUser = async (signupData) => {
 export const loginUser = async (loginData) => {
     const userData = await api.post('/auth/login', loginData);
     localStorage.setItem('authToken', userData.data.token);
+    console.log(userData)
     const userObject= getUserProfile() 
     return userObject;
 }
@@ -70,7 +71,6 @@ export const putPost = async (id, postData) => {
 
 export const getCityPost = async (cityId) => {
     const cityPosts = await api.get(`/post/city/${cityId}/all`)
-    console.log(cityPosts)
     return cityPosts.data
 }
 

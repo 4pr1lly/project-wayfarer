@@ -3,7 +3,8 @@ import axios from 'axios'
 import './city.css';
 import SingleCity from './SingleCity';
 import { Link, Route } from 'react-router-dom';
-import { postPost } from '../../services/api_helper';
+import { postPost,indexPosts } from '../../services/api_helper';
+
 
 
 
@@ -13,7 +14,8 @@ class City extends Component {
         super(props);
 
         this.state = {
-            cities: []
+            cities: [],
+            posts:[]
         }
     }
 
@@ -24,9 +26,13 @@ class City extends Component {
 
     async componentDidMount() {
         const topCity = await axios.get("http://localhost:3001/city/all")
-        console.log(topCity.data);
+        const post = await indexPosts()
+        console.log(this.props.cityId)
+        
         this.setState({
-          cities: topCity.data
+          cities: topCity.data, 
+          posts: post,
+          
         })
       }
 
@@ -36,7 +42,7 @@ class City extends Component {
             <h2>Cities</h2>
             {this.state.cities.map(city => {
                 return (
-                    <div>
+                    <div key= {city.id}>
                         <Link to={`/city/${city.id}`}>
                             <h2>{city.name}</h2>
                             <img src={city.img} alt="city"/>
@@ -50,6 +56,7 @@ class City extends Component {
                   cities={this.state.cities}
                   cityId={props.match.params.id}
                   handleSubmit={this.createPost}
+                  posts={this.state.posts}
                   />
                
 

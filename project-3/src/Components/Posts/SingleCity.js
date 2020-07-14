@@ -12,36 +12,28 @@ class SingleCity extends Component {
         super(props)
 
         this.state= {
-            posts: []
+            posts: [],
+            cityId:this.props.cityID
         }
     }
 
     async componentDidMount(){
         const post = await getCityPost(this.props.cityId)
-        console.log(post)
+        console.log(this.props.cityId)
         this.setState({
             posts: post
         })
     }
 
+   
     render () {
        const foundCity = this.props.cities.filter(city => {
             return city.id === parseInt(this.props.cityId)
         })
-
-
-
-
-        // handleSubmit = (event) => {
-        //     event.preventDefault();
-        //     const posts = this.state.posts;
-        //     posts.push(this.state.postsText);
-            
-        //     this.setState({
-        //         posts:'',
-        //         postsText: ''
-        //     })
-        // }
+        const foundPosts = this.props.posts.filter(post => {
+            return post.City.id === parseInt(this.props.cityId)
+        })
+        
 
 
 
@@ -59,7 +51,7 @@ class SingleCity extends Component {
                 handleSubmit={this.props.handleSubmit}
                 cityId={this.props.cityId}
                 />
-            <PostList posts={this.state.posts} />
+            <PostList posts={foundPosts} />
             <SinglePost posts ={this.state.posts}/>
         </div>
     )
