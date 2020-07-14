@@ -23,7 +23,7 @@ class UpdatePostForm extends Component {
 
     render() {
         return (
-            <form onSubmit={(e)=>this.props.handleSubmit(e, this.state)}>
+            <form onSubmit={(e) => this.props.handleSubmit(e, this.state, this.props.cityId)}>
                 
                 <input 
                     type="text"

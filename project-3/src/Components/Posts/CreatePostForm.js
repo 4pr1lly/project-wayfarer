@@ -1,5 +1,6 @@
 //deleting and editing posts will need authorization
 import React, { Component } from 'react';
+import City from './City';
 
 class CreatePostForm extends Component {
     constructor(props) {
@@ -9,6 +10,7 @@ class CreatePostForm extends Component {
             title: '',
             image_url: '',
             description: '',
+            posts:'',
         }
     }
 
@@ -17,10 +19,14 @@ class CreatePostForm extends Component {
             [e.target.name]: e.target.value
         })
     }
+
+   
+
  
     render() {
         return (
             <form onSubmit={(e) => this.props.handleSubmit(e, this.state, this.props.cityId)}>
+                  {/* <City/> */}
                 <input 
                     type="text" 
                     name="title" 
@@ -46,6 +52,6 @@ class CreatePostForm extends Component {
             </form>
         )
     }
-}
+}  
 
 export default CreatePostForm;

@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import CreatePostForm from './CreatePostForm';
 import PostList from './PostList';
 import { getCityPost } from '../../services/api_helper'
+import SinglePost from './SinglePost';
+
 
 
 class SingleCity extends Component {
@@ -26,6 +28,23 @@ class SingleCity extends Component {
        const foundCity = this.props.cities.filter(city => {
             return city.id === parseInt(this.props.cityId)
         })
+
+
+
+
+        // handleSubmit = (event) => {
+        //     event.preventDefault();
+        //     const posts = this.state.posts;
+        //     posts.push(this.state.postsText);
+            
+        //     this.setState({
+        //         posts:'',
+        //         postsText: ''
+        //     })
+        // }
+
+
+
     return (
         <div>
             {foundCity[0] && 
@@ -41,6 +60,7 @@ class SingleCity extends Component {
                 cityId={this.props.cityId}
                 />
             <PostList posts={this.state.posts} />
+            <SinglePost posts ={this.state.posts}/>
         </div>
     )
 }

@@ -94,6 +94,7 @@ class App extends Component {
           <Link to="/"><h1 className="wayfarer-heading">Wayfarer</h1></Link>
           {this.state.currentUser && <h3>Welcome: {this.state.currentUser.username}</h3>}
           {this.state.currentUser ? <button onClick={this.handleLogout}>Logout</button> : (
+          
           <div>
             <ul className="navbar-right">
               <li className="nav-item1">
@@ -101,9 +102,14 @@ class App extends Component {
               </li>
               <li className="nav-item2">
                 <Link to="/login">Login</Link>
+                
+              </li>
+              <li className="nav-item3">
+              <Link to="/profile">Profile</Link>
               </li>
             </ul>
           </div>
+          
         )}
         </div>
         </div>
@@ -112,7 +118,38 @@ class App extends Component {
       <div className="img-home">
         <img src="https://www.pxwall.com/wp-content/uploads/2018/08/Wallpaper%20Niagara%20Falls,%20Waterfall,%207K,%20Travel%207369715415.jpg"/>
       </div>
-      <div className="topic-container">
+   
+      {/* <div>
+                { this.state.isShowing ? <div onClick={this.closeModalHandler} className="back-drop"></div> : null }
+
+                <button className="open-modal-btn" onClick={this.openModalHandler}>Open Modal</button>
+
+                <LoginModal
+                    className="modal"
+                    show={this.state.isShowing}
+                    close={this.closeModalHandler}>
+                        Maybe aircrafts fly very high because they don't want to be seen in plane sight?
+                </LoginModal>
+      </div> */}
+      
+      
+      <Route path="/profile" render={() => {
+        return <Profile currentUser={this.state.currentUser}/>
+      }} />
+      <Route path="/city" render={() => {
+        return <City />
+      }}/>
+      <Route path="/signup" render={() => {
+        return <Signup handleSubmit={this.handleSignup}/>
+      }} />
+      <Route path="/login" render={() => {
+        return <Login handleSubmit={this.handleLogin}/>
+      }} />
+      <Route path='/posts' render={() => {
+        return this.state.currentUser &&
+      <PostContainer />
+        }} />
+           <div className="topic-container">
             <div className="jumbotron">
                 <h2 className="header">Wayfarer</h2>
                 <main className="topics">
@@ -137,37 +174,10 @@ class App extends Component {
                 </main>
             </div>
       </div>
-      {/* <div>
-                { this.state.isShowing ? <div onClick={this.closeModalHandler} className="back-drop"></div> : null }
-
-                <button className="open-modal-btn" onClick={this.openModalHandler}>Open Modal</button>
-
-                <LoginModal
-                    className="modal"
-                    show={this.state.isShowing}
-                    close={this.closeModalHandler}>
-                        Maybe aircrafts fly very high because they don't want to be seen in plane sight?
-                </LoginModal>
-      </div> */}
-      
-      <Route path="/profile" render={() => {
-        return <Profile currentUser={this.state.currentUser}/>
-      }} />
-      <Route path="/city" render={() => {
-        return <City />
-      }}/>
-      <Route path="/signup" render={() => {
-        return <Signup handleSubmit={this.handleSignup}/>
-      }} />
-      <Route path="/login" render={() => {
-        return <Login handleSubmit={this.handleLogin}/>
-      }} />
-      <Route path='/posts' render={() => {
-        return this.state.currentUser &&
-      <PostContainer />
-        }} />
+        
     </div>
     );
+    
   }
 }
 export default withRouter (App);
