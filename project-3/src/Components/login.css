@@ -1,0 +1,31 @@
+.login-container {
+    text-align: center;
+}
+
+.login-prompt {
+    font-family: Lucida Handwriting;
+    font-size: xx-large;
+}
+
+.login-img {
+    width: 400px;
+    height: 300px;
+    margin-top: 100px;
+}
+
+.login-submit {
+    background: gray;
+    border-radius: 5em;
+    padding: .1em;
+    border: 0px solid;
+    width: 5em;
+    margin: .3em;
+    font-size: 1.5em;
+    color: #8fbc8f;
+    text-align: center;
+    cursor: pointer;
+}
+
+.login-submit:hover {
+    color: #fefefe
+}

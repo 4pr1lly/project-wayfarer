@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
+import "./signup.css";
+
 
 class Signup extends Component {
     constructor(props){
@@ -19,8 +20,9 @@ class Signup extends Component {
 
     render() {
         return (
-            <nav>
-            <form onSubmit={(e)=>this.props.handleSubmit(e, this.state)}>
+            <div className="signup-container">
+                <p className="signup-prompt">Please Create An Account</p>
+            <form className="signup-form" onSubmit={(e)=>this.props.handleSubmit(e, this.state)}>
                 
                 <input
                     type="text"
@@ -29,6 +31,8 @@ class Signup extends Component {
                     value={this.state.username}
                     onChange={this.handleChange}
                  />
+                 <br></br>
+                 <br></br>
                  <input
                     type="password"
                     name="password"
@@ -36,12 +40,15 @@ class Signup extends Component {
                     value={this.state.password}
                     onChange={this.handleChange}
                 />
-                <input
+                <br></br>
+                <br></br>
+                <input className="signup-submit"
                  type="submit"
-                 value="Sign Up"
+                 value="Sign-Up"
                  />
             </form>
-        </nav>
+            <img className="signup-img" src="https://i.pinimg.com/originals/f9/8e/55/f98e55b976714b95b9799c01d9d94f18.jpg" />
+            </div>
         )
     }
 }

@@ -1,0 +1,45 @@
+.profile-flex {
+    text-align: center;
+}
+
+.profile-flex a {
+    text-decoration: none;
+}
+
+.profile-intro {
+    font-family: Lucida Handwriting;
+    font-size: xx-large;
+}
+
+.profile-img {
+    width: 400px;
+    height: 300px
+}
+
+.city-link {
+    background: gray;
+    border-radius: 5em;
+    padding: .9em;
+    border: 0px solid;
+    width: 10em;
+    margin: .3em;
+    font-size: 1.5em;
+    color: #8fbc8f;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.city-link:hover {
+    color: #fefefe
+}
+
+h3 {
+    margin-bottom: 80px;
+}
+
+.flex-container {
+    text-align: center;
+    font-family: Lucida Handwriting;
+    font-size: xx-large;
+    margin-top: 100px;
+}

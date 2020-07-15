@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route, withRouter } from 'react-router-dom';
-import { postPost, indexPosts, destroyPost, putPost } from '../../services/api_helper';
+import { indexPosts, destroyPost, putPost } from '../../services/api_helper';
 import CreatePostForm from './CreatePostForm';
 import PostList from './PostList';
 import SinglePost from './SinglePost';

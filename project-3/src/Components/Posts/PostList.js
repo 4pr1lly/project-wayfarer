@@ -1,15 +1,15 @@
-//grabbing all posts by user and single post will need authorization
-
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './postlist.css';
 
 function PostList(props) {
     return (
-        <div>
+        <div className="post-container">
             {props.posts.map(post => {
                 return <Link to={`/posts/${post.id}`}>
-                    <h3>{post.title}</h3></Link>
-            })}
+                    <h3 className="post-titles">{post.title}</h3></Link>
+                    {/* <p className="post-body">{post.body}</p></Link> */}
+                })}
         </div>
     )
 }

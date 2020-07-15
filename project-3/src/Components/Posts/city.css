@@ -1,3 +1,57 @@
 img {
     width: 100px;
 }
+
+.city-container {
+    background-color: #8fbc8f;
+    padding: .8em;
+    max-width: 18em;
+    height: 1000px; 
+}
+
+.cities a{
+    text-decoration: none;
+}
+
+.city-name {
+    background: gray;
+    border-radius: 5em;
+    padding: .9em;
+    border: 0px solid;
+    width: 10em;
+    margin: .3em;
+    font-size: 1.5em;
+    color: #8fbc8f;
+    text-align: center;
+}
+
+.city-name:hover {
+    color: #fefefe
+}
+
+.waterfall-img {
+    height: 750px;
+    width: 285px
+}
+
+.city-content {
+    margin-left: 1000px;
+    margin-top: -1000px;
+}
+
+.post-submit {
+    background: gray;
+    border-radius: 5em;
+    padding: .1em;
+    border: 0px solid;
+    width: 6em;
+    margin: .3em;
+    font-size: 1.5em;
+    color: #8fbc8f;
+    text-align: center;
+    cursor: pointer;
+}
+    
+.post-submit:hover {
+    color: #fefefe
+}

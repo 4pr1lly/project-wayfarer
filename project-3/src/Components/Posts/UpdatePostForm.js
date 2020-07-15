@@ -6,7 +6,6 @@ class UpdatePostForm extends Component {
 
         this.state ={
             title: "",
-            image_url:"",
             description:"",
             
         }
@@ -29,11 +28,6 @@ class UpdatePostForm extends Component {
                     type="text"
                     name="title"
                     placeholder="title"
-                    onChange={this.handleChange}/>
-                <input
-                    type="text"
-                    name="image_url"
-                    placeholder="image"
                     onChange={this.handleChange}/>
                 <input
                     type="text"

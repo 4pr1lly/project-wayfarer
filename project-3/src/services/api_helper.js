@@ -10,6 +10,7 @@ export const signupUser = async (signupData) => {
     const userObject= getUserProfile() 
     return userObject;
 }
+
 export const loginUser = async (loginData) => {
     const userData = await api.post('/auth/login', loginData);
     localStorage.setItem('authToken', userData.data.token);
@@ -47,11 +48,6 @@ export const postPost= async(postData, cityId) => {
     return newPost;
 }
 
-// export const postPost = async (postData) => {
-//     const newPost = await api.post('/posts', postData);
-//     return newPost;
-// }
-
 export const indexPosts = async () => {
     const allPosts = await api.get('/post');
     console.log(allPosts)
@@ -73,26 +69,3 @@ export const getCityPost = async (cityId) => {
     console.log(cityPosts)
     return cityPosts.data
 }
-
-
-// //Create POST//
-// //--> Route Post http://localhost:3001/post/
-
-// export const postPost= async(postData, cityId) => {
-//     const newPost = await api.post(`/post/${cityId}`, postData);
-//     console.log(newPost);
-//     return newPost;
-// }
-
-
-
-
-
-// //Get all POSTS
-// //---> GET---> http:// localhost:3001/post/all
-
-// export const indexPosts =async () => {
-//     const allPosts=await api.get(`/post/all`);
-//     console.log(allPosts);
-//     return allPosts.data;
-// }

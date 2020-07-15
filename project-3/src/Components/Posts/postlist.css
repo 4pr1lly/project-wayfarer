@@ -1,0 +1,31 @@
+a {
+    text-decoration: none;
+}
+
+.posts-container {
+    margin-left: -610px;
+    width: 137%
+}
+
+.post-titles {
+    margin-bottom: 25px;
+    padding-top: 20px;
+    height: 40px;
+    background-color: lightgray;
+    color: black;
+    border: black 1px solid
+    /* margin-bottom: 20px;
+    background-color: #8fbc8f;
+    color: #fefefe;
+    border: black 1px solid */
+}
+
+.post-body {
+    margin-bottom: 25px;
+    padding-top: 20px;
+    height: 40px;
+    margin-top: -20px;
+    background-color: lightgray;
+    color: black;
+    border: black 1px solid
+}

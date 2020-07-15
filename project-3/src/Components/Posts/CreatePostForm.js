@@ -1,4 +1,3 @@
-//deleting and editing posts will need authorization
 import React, { Component } from 'react';
 
 class CreatePostForm extends Component {
@@ -7,8 +6,7 @@ class CreatePostForm extends Component {
 
         this.state = {
             title: '',
-            image_url: '',
-            description: '',
+            description: ''
         }
     }
 
@@ -20,26 +18,16 @@ class CreatePostForm extends Component {
  
     render() {
         return (
-            <form onSubmit={(e) => this.props.handleSubmit(e, this.state, this.props.cityId)}>
+            <form className="post-form" onSubmit={(e) => this.props.handleSubmit(e, this.state, this.props.cityId)}>
                 <input 
                     type="text" 
                     name="title" 
-                    placeholder="Title"
+                    placeholder="Post Something..."
                     onChange={this.handleChange}
                 />
-                <input
-                    type="text"
-                    name="image_url"
-                    placeholder="Image"
-                    onChange={this.handleChange}
-                />
-                <input
-                    type="text"
-                    name="description"
-                    placeholder="Description"
-                    onChange={this.handleChange}
-                />
-                <input
+                <br></br>
+                <br></br>
+                <input className="post-submit"
                     type="submit"
                     value="Submit Post"
                 />

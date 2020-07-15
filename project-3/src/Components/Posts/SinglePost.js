@@ -1,5 +1,3 @@
-//creating a single post needs authorization
-
 import React from 'react'
 
 function SinglePost(props) {
@@ -12,7 +10,7 @@ function SinglePost(props) {
         {currentPost[0] && (
             <div>
                 <h2>{currentPost[0].title}</h2>
-                <h4>{currentPost[0].description}</h4>
+                {/* <h4>{currentPost[0].description}</h4> */}
                 <button onClick={() => props.destroyPost(currentPost[0].id)}>Delete</button>
             </div>
         )}
